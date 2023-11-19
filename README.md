@@ -39,6 +39,9 @@ Para ejecutar el proyecto deberá ejecutar los siguientes pasos:
    - Build status: Active
 
 4. Crear la variable de entorno REDIS_DB_URI con el string de conexión a la base de datos de Redis
+   REDIS_DB_URI = redis://<REDIS_USER>:<REDIS_PASSWORD>@<REDIS_HOST>:<REDIS_PORT>
+   ejemplo: \ 
+   redis://default:45d4a5s4d5as64d5as4d@redis-58318.c61.us-east-1-3.ec2.cloud.redislabs.com:58318
 
 Funciones disponibles
 - DeleteAlbum : Elimina un álbum
