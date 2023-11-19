@@ -5,7 +5,8 @@ const {
 } = require('./ClientDB');
 
 exports.UpdateOne = async (keybase, id, data) => {  
-    const result = await clientRedisBD.set(`${keybase}${id}`,data);
+    const dataText = JSON.stringify(data);
+    const result = await clientRedisBD.set(`${keybase}${id}`, dataText);
     if(result !== 'OK')
         throw 'No se pudo modificar el registro.';
     return {
