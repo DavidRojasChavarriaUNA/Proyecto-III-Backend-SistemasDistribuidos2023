@@ -6,6 +6,7 @@ const {
 
 exports.GetOne = async (keyBase, id) => {
     await clientRedisBD.connect();
-    const data = await clientRedisBD.get(`${keyBase}${id}`);
+    const dataText = await clientRedisBD.get(`${keyBase}${id}`);
+    const data = JSON.parse(dataText);
     return data;
 }

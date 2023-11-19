@@ -7,8 +7,10 @@ const {
 exports.GetAll = async (keyBase) => {
     const keys = await clientRedisBD.keys(`${keyBase}*`);
     let data = undefined;
-    if(keys && keys.length)
-        data = await clientRedisBD.mget(keys);
+    if(keys && keys.length){
+        const dataCollectionText = await clientRedisBD.mget(keys);
+        data = dataCollectionText.map(dataText => JSON.parse(dataText));
+    }
     else
         data = [];
     return data;
